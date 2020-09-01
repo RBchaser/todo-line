@@ -1,0 +1,8 @@
+<h1>編集ページ</h1>
+<%= form_tag("/tasks/"+@task.id.to_s,:method=>:patch) do %>
+<div class="form-group">
+    <label for="content">Create task</label>
+    <%= text_field :task, :content,class:"form-control",id:"content"%>
+</div>
+    <%= submit_tag "Update",class:"btn btn-primary"%>
+<% end%>

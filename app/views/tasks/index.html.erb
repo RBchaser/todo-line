@@ -1,0 +1,30 @@
+<h1>To Do App</h1>
+<%= form_tag("/create") do %>
+<div class="form-group">
+    <label for="content">Create task</label>
+    <%= text_field :task, :content,class:"form-control",id:"content"%>
+</div>
+    <%= submit_tag "Create",class:"btn btn-primary"%>
+<% end%>
+
+<hr>
+
+<h1>Your Tasks</h1>
+
+<% @tasks.each do|task|%>
+<div class="koma">
+        <div class="character">
+            <div class="balloon2-right">
+                <p><%= task.content%></a></p>
+                
+            </div>
+            
+            <%= image_tag("#{@characters.sample}",:id=>"chara")%><a href="/tasks/<%= task.id%>/edit">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </div>
+    
+    <div class="buttons">
+        <a href="/tasks/<%= task.id%>" data-method="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+    </div>
+</div>
+<% end%>
